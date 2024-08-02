@@ -7,29 +7,35 @@
 
 import Foundation
 
-struct ToDoItem: Codable, Identifiable{
-    let id: String
-    let title: String
-    let dueDate: TimeInterval
-    let createdDate: TimeInterval
+struct ToDoItem: Codable, Identifiable {
+    let id: UUID
+    var title: String
+    var dueDate: TimeInterval
+    var createdDate: TimeInterval
+    var notes: String
     var isDone: Bool
     
     mutating func setDone(_ state: Bool) {
         isDone = state
     }
+    init(id: UUID=UUID(), title: String, dueDate: TimeInterval, createdDate: TimeInterval, notes: String, isDone: Bool) {
+        self.id = id
+        self.title = title
+        self.dueDate = dueDate
+        self.createdDate = createdDate
+        self.notes = notes
+        self.isDone = isDone
+    }
+    
+    static var emptyItem: ToDoItem {
+        ToDoItem(title: "", dueDate: Date().timeIntervalSince1970, createdDate: Date().timeIntervalSince1970, notes: "", isDone: false)
+    }
 }
 
-struct ToDoMetaData: Identifiable {
-    var id = UUID().uuidString
-    var item: [ToDoItem]
-    var itemDate: Date
-}
 func date(from timeInterval: TimeInterval) -> Date {
     return Date(timeIntervalSince1970: timeInterval)
 }
-//for testing
-//TODO: replace with user actual data
-// Function to generate a sample date as a TimeInterval
+
 func getSample(offset: Int) -> TimeInterval {
     let calendar = Calendar.current
     if let date = calendar.date(byAdding: .day, value: offset, to: Date()) {
@@ -38,11 +44,12 @@ func getSample(offset: Int) -> TimeInterval {
         return Date().timeIntervalSince1970
     }
 }
-var ToDoItems: [ToDoMetaData] = [
-    ToDoMetaData(item: [ToDoItem(id: UUID().uuidString, title: "Finish project", dueDate: getSample(offset: 0), createdDate: Date().timeIntervalSince1970, isDone: false)], itemDate: date(from: getSample(offset: 0))),
-    ToDoMetaData(item: [ToDoItem(id: UUID().uuidString, title: "Learn dance", dueDate: getSample(offset: 2), createdDate: Date().timeIntervalSince1970, isDone: false)], itemDate: date(from: getSample(offset: 2))),
-    ToDoMetaData(item: [ToDoItem(id: UUID().uuidString, title: "Buy groceries", dueDate: getSample(offset: 3), createdDate: Date().timeIntervalSince1970, isDone: false)], itemDate: date(from: getSample(offset: 3))),
-    ToDoMetaData(item: [ToDoItem(id: UUID().uuidString, title: "Dragonboat practice", dueDate: getSample(offset: -1), createdDate: Date().timeIntervalSince1970, isDone: true)], itemDate: date(from: getSample(offset: -1))),
-]
 
+extension ToDoItem {
+    static let sampleData: [ToDoItem] =
+    [
+        ToDoItem(title: "a", dueDate: getSample(offset: 0), createdDate: Date().timeIntervalSince1970, notes: "n1", isDone: false),
+        ToDoItem(title: "b", dueDate: getSample(offset: 0), createdDate: Date().timeIntervalSince1970, notes: "n2", isDone: true),
+    ]
+}
 

@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+//TODO: add different colour dot under date for todo list
 struct MyDatePicker: View {
     @Binding var currentDate: Date
     @State var currentMonth: Int = 0
     
-    //private let colors: [Color] = [.periwinkle, .seafoam]
+    @Binding var events: [Events]
     
     //TODO: add alarms, todo list view, types of calendars, health trackers (highlights?)
     var body: some View {
@@ -74,14 +75,14 @@ struct MyDatePicker: View {
         VStack {
             if value.day != -1 {
                 if let event = events.first(where: {event in
-                    return isSameDay(date1: event.eventDate, date2: value.date)
+                    return isSameDay(date1: dateEvent(from: event.startTime), date2: value.date)
                 }) {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: event.eventDate, date2: currentDate) ? .accentColor : .primary).frame(maxWidth: .infinity)
+                        .foregroundColor(isSameDay(date1: dateEvent(from: event.startTime), date2: currentDate) ? .accentColor : .primary).frame(maxWidth: .infinity)
                     Spacer()
                     Circle()
-                        .fill(isSameDay(date1: event.eventDate, date2: currentDate) ? .white : .indigo)
+                        .fill(isSameDay(date1: dateEvent(from: event.startTime), date2: currentDate) ? .white : .indigo)
                         .frame(width: 7, height: 7)
                 }else {
                     Text("\(value.day)")
@@ -132,8 +133,7 @@ struct MyDatePicker: View {
 
 struct MyDatePicker_Previews: PreviewProvider {
     static var previews: some View {
-        MonthView()
-    }
+        MonthView(items: .constant(ToDoItem.sampleData), events: .constant(Events.sampleData), saveAction: {})    }
 }
 
 extension Date {
