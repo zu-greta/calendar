@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// add an event view (goes to adding event view for details)
 struct AddEventView: View {
     @State private var addEvent = Events.emptyEvent
     @Binding var events: [Events]

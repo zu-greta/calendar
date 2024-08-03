@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// add a to do item view 
 struct AddingItemView: View {
     @Binding var viewModel: ToDoItem
     @State private var newItemTitle = ""
@@ -23,7 +24,7 @@ struct AddingItemView: View {
             Text("Add To Do Item")
                 .font(.system(size: 32))
                 .bold()
-                .padding(.top, 60)
+                .padding(.top, 20)
             Form {
                 TextField("Title", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())

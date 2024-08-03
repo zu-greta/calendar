@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-//TODO: add different colour dot under date for todo list
+//TODO: highlight today in different colour
+
+// month calendar view
 struct MyDatePicker: View {
     @Binding var currentDate: Date
     @State var currentMonth: Int = 0
     
     @Binding var events: [Events]
+    @Binding var items: [ToDoItem]
     
-    //TODO: add alarms, todo list view, types of calendars, health trackers (highlights?)
     var body: some View {
         VStack(spacing: 35) {
             let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -53,7 +55,7 @@ struct MyDatePicker: View {
                 ForEach(extractDate()) {
                     value in CardView(value: value)
                         .background(Capsule()
-                            .fill(.lavender)
+                            .fill(.bubblegum.opacity(0.5))
                         .padding(.horizontal, 8)
                         .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                     )
@@ -69,7 +71,6 @@ struct MyDatePicker: View {
         }
     }
     
-    //TODO: database/file for user data instead of sample data
     @ViewBuilder
     func CardView(value: DateValue)->some View {
         VStack {
@@ -91,11 +92,22 @@ struct MyDatePicker: View {
                         .frame(maxWidth: .infinity)
                     Spacer()
                 }
+                //TODO: fix when there are both events and todo items
+                if hasTodo(for: value.date) {
+                    Circle()
+                        .fill(isSameDay(date1: value.date, date2: currentDate) ? .gray : .teal)
+                        .frame(width:7, height: 7)
+                }
             }
         }
         .padding(.vertical, 9)
         .frame(height:50, alignment: .top)
     }
+    func hasTodo(for date: Date) -> Bool {
+            return items.contains { item in
+                return isSameDay(date1: Date(timeIntervalSince1970: item.dueDate), date2: date)
+            }
+        }
     
     func isSameDay(date1: Date, date2:Date)->Bool {
         let calendar = Calendar.current

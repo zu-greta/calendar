@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// add a to do item view (goes to adding item view)
 struct AddToDoView: View {
     @State private var addItem = ToDoItem.emptyItem
     @Binding var items: [ToDoItem]

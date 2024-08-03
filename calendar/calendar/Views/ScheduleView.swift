@@ -7,13 +7,15 @@
 
 import SwiftUI
 
+//TODO: place in chronological order
+//TODO: click open for details and edit view
+//TODO: tab instead of dot? for events lasting longer
+
+// schedule view
 struct ScheduleView: View {
     @Binding var events: [Events]
     @Binding var currentDate: Date
 
-    //TODO: time for events + place in chronological order
-    //TODO: click open for details and edit view
-    //TODO: tab instead of dot? for events lasting longer
     var body: some View {
         VStack(spacing: 15){
             Text("Schedule")
@@ -26,20 +28,32 @@ struct ScheduleView: View {
                 Text("No events found")
                     .padding([.top, .leading])
             } else {
-                ForEach(filteredEvents) { event in
-                    VStack(alignment: .leading, spacing: 10){
-                        Text("\(Date(timeIntervalSince1970: event.startTime).formatted(date: .abbreviated, time: .shortened))")
-                        
-                        Text(event.title)
-                            .font(.title2.bold())
+                ScrollView {
+                    VStack(spacing: 15) {
+                        ForEach(filteredEvents) { event in
+                            if let index = events.firstIndex(where: { $0.id == event.id }) {
+                                NavigationLink(destination: EventDetailView(event: $events[index], deleteAction: {events.remove(at: index)})) { //DELETE
+                                    HStack {
+                                        VStack(alignment: .leading) {
+                                            
+                                            Text(event.title)
+                                                .font(.title2)
+                                                .foregroundColor(Date(timeIntervalSince1970: event.endTime) < Date() ? .gray : .primary)
+
+                                            Text("\(Date(timeIntervalSince1970: event.startTime).formatted(date: .abbreviated, time: .shortened))")
+                                             
+                                        }
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(Color(.lavender))
+                                    .cornerRadius(30)
+                                    .padding(.horizontal)
+                                }
+                            }
+                        }
                     }
-                    .padding(.vertical, 10)
-                    .padding(.horizontal)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(
-                        Color(.lavender))
-                        .cornerRadius(30)
-                        .padding(.horizontal)
                 }
             }
         }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//add an event view
 struct AddingEventView: View {
     @Binding var viewModel: Events
     @State private var newEventTitle = ""
@@ -29,7 +30,7 @@ struct AddingEventView: View {
             Text("Add Event")
                 .font(.system(size: 32))
                 .bold()
-                .padding(.top, 60)
+                .padding(.top, 20)
             Form {
                 TextField("Title", text: $viewModel.title)
                     .textFieldStyle(DefaultTextFieldStyle())

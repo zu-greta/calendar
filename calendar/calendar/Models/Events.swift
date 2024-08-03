@@ -7,6 +7,7 @@
 
 import Foundation
 
+//events
 struct Events: Identifiable, Codable {
     var id = UUID().uuidString
     var title: String

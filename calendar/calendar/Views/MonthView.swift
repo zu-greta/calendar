@@ -18,10 +18,12 @@ struct MonthView: View {
     let saveAction: ()->Void
         
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack (spacing: 20){
-                MyDatePicker(currentDate: $currentDate, events: $events)
-                //TODO: edit and detail view
+                //calendar month view
+                MyDatePicker(currentDate: $currentDate, events: $events, items: $items)
+                //TODO: add arrow button to pull up the schedule/todo view -> change to week instead of month view for the calendar
+                //schedule and to do list view
                 ZStack {
                     TabView(selection: $selection) {
                         ScrollView(.vertical) {
@@ -47,6 +49,7 @@ struct MonthView: View {
                      .padding(.top, 150)
                 }
             }
+            // adding a to do item or event
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Spacer()
