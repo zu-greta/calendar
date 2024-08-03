@@ -10,7 +10,7 @@ import SwiftUI
 // editing item detailed view (+delete an item)
 struct ItemDetailView: View {
     @Binding var item: ToDoItem
-    var deleteAction: (() -> Void)? //DELETE
+    var deleteAction: (() -> Void)?
     @State private var editingItem = ToDoItem.emptyItem
     @State private var isPresentingEditView = false
     
@@ -38,7 +38,6 @@ struct ItemDetailView: View {
                 
             }
         }
-        //.navigationTitle(item.title)
         .toolbar {
             ToolbarItem(placement: .destructiveAction) {
                 Button("Delete") {

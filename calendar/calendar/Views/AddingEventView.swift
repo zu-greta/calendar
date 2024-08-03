@@ -43,6 +43,7 @@ struct AddingEventView: View {
                     .datePickerStyle(DefaultDatePickerStyle())
                 
                 //TODO: dynamic drop down menu for calendars and add action for buttons
+                /*
                 HStack {
                     Text("Calendar")
                     Spacer()
@@ -51,6 +52,7 @@ struct AddingEventView: View {
                         Button("calendar1", action: {})
                     }
                 }
+                */
                 TextField("Notes", text: $viewModel.notes, axis: .vertical)
                     .textFieldStyle(DefaultTextFieldStyle())
                     .frame(height: 100)

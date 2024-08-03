@@ -49,6 +49,8 @@ extension Events {
         Events(title: "e", location: "here", startTime: getEventSample(offset: 0), endTime: getEventSample(offset: 0), createdDate: Date().timeIntervalSince1970, notes: "n3"),
         Events(title: "d", location: "there", startTime: getEventSample(offset: 0), endTime: getEventSample(offset: 0), createdDate: Date().timeIntervalSince1970, notes: "n3"),
         Events(title: "f", location: "elsewhere",  startTime: getEventSample(offset: 2), endTime: getEventSample(offset: 2), createdDate: Date().timeIntervalSince1970, notes: "n3"),
+        Events(title: "g", location: "elsewhere",  startTime: getEventSample(offset: -1), endTime: getEventSample(offset: 1), createdDate: Date().timeIntervalSince1970, notes: "n3"),
+        Events(title: "ggg", location: "elsewhere",  startTime: getEventSample(offset: 4), endTime: getEventSample(offset: 8), createdDate: Date().timeIntervalSince1970, notes: "n3"),
 
     ]
 }

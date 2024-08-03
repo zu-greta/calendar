@@ -7,10 +7,6 @@
 
 import SwiftUI
 
-//TODO: place in chronological order
-//TODO: click open for details and edit view
-//TODO: tab instead of dot? for events lasting longer
-
 // schedule view
 struct ScheduleView: View {
     @Binding var events: [Events]
@@ -23,7 +19,9 @@ struct ScheduleView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading)
             
-            let filteredEvents = events.filter { isSameDay(date1: Date(timeIntervalSince1970: $0.startTime), date2: currentDate) }
+            let filteredEvents = events.filter { isSameDay(date1: Date(timeIntervalSince1970: $0.startTime), date2: currentDate) || isSameDay(date1: Date(timeIntervalSince1970: $0.endTime), date2: currentDate) || isDateInRange(date: currentDate, startDate: Date(timeIntervalSince1970: $0.startTime), endDate: Date(timeIntervalSince1970: $0.endTime))}
+                            .sorted { $0.endTime
+                                < $1.endTime }
             if filteredEvents.isEmpty {
                 Text("No events found")
                     .padding([.top, .leading])
@@ -32,7 +30,7 @@ struct ScheduleView: View {
                     VStack(spacing: 15) {
                         ForEach(filteredEvents) { event in
                             if let index = events.firstIndex(where: { $0.id == event.id }) {
-                                NavigationLink(destination: EventDetailView(event: $events[index], deleteAction: {events.remove(at: index)})) { //DELETE
+                                NavigationLink(destination: EventDetailView(event: $events[index], deleteAction: {events.remove(at: index)})) {
                                     HStack {
                                         VStack(alignment: .leading) {
                                             
@@ -40,7 +38,19 @@ struct ScheduleView: View {
                                                 .font(.title2)
                                                 .foregroundColor(Date(timeIntervalSince1970: event.endTime) < Date() ? .gray : .primary)
 
-                                            Text("\(Date(timeIntervalSince1970: event.startTime).formatted(date: .abbreviated, time: .shortened))")
+                                            HStack {
+                                                Text("\(Date(timeIntervalSince1970: event.startTime).formatted(date: .abbreviated, time: .shortened))")
+                                                    .foregroundColor(Date(timeIntervalSince1970: event.endTime) < Date() ? .gray : .primary)
+                                                .font(.footnote)
+                                                Spacer()
+                                                Text("to")
+                                                    .foregroundColor(Date(timeIntervalSince1970: event.endTime) < Date() ? .gray : .primary)
+                                                .font(.footnote)
+                                                Spacer()
+                                                Text("\(Date(timeIntervalSince1970: event.endTime).formatted(date: .abbreviated, time: .shortened))")
+                                                    .foregroundColor(Date(timeIntervalSince1970: event.endTime) < Date() ? .gray : .primary)
+                                                .font(.footnote)
+                                            }
                                              
                                         }
                                     }
@@ -62,6 +72,10 @@ struct ScheduleView: View {
     func isSameDay(date1: Date, date2: Date) -> Bool {
         let calendar = Calendar.current
         return calendar.isDate(date1, inSameDayAs: date2)
+    }
+    
+    func isDateInRange(date: Date, startDate: Date, endDate: Date) -> Bool {
+        return (startDate...endDate).contains(date)
     }
 }
 

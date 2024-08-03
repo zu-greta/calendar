@@ -20,7 +20,7 @@ struct DetailEventEditView: View {
                 DatePicker("Starts", selection: startTimeBinding)
                 DatePicker("Ends", selection: endTimeBinding)
                 //TODO: dynamic calendar change????
-                HStack {
+                /*HStack {
                     Text("Calendar")
                     Spacer()
                     Menu ("calendars") {
@@ -28,6 +28,7 @@ struct DetailEventEditView: View {
                         Button("calendar1", action: {})
                     }
                 }
+                */
                 TextField("Notes", text: $event.notes)
             }
         }

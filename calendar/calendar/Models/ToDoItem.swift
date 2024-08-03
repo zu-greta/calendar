@@ -52,6 +52,7 @@ extension ToDoItem {
         ToDoItem(title: "a", dueDate: getSample(offset: 0), createdDate: Date().timeIntervalSince1970, notes: "n1", isDone: false),
         ToDoItem(title: "b", dueDate: getSample(offset: 0), createdDate: Date().timeIntervalSince1970, notes: "n2", isDone: true),
         ToDoItem(title: "v", dueDate: getSample(offset: 1), createdDate: Date().timeIntervalSince1970, notes: "n2", isDone: true),
+        ToDoItem(title: "aa", dueDate: getSample(offset: -1), createdDate: Date().timeIntervalSince1970, notes: "n1", isDone: false),
     ]
 }
 

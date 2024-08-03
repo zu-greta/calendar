@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-//TODO: keep the reminder going until checked off
-//TODO: change colour when checked off
-//TODO: highlight in red if 'past due'
+//TODO: 'past due' items not checked off keep it showing up in following days
 
 // to do list view
 struct ToDoListView: View {
@@ -33,7 +31,7 @@ struct ToDoListView: View {
                     VStack(spacing: 15) {
                         ForEach(filteredItems) { item in
                             if let index = items.firstIndex(where: { $0.id == item.id }) {
-                                NavigationLink(destination: ItemDetailView(item: $items[index], deleteAction: {items.remove(at: index)})) { //DELETE
+                                NavigationLink(destination: ItemDetailView(item: $items[index], deleteAction: {items.remove(at: index)})) {
                                     HStack {
                                         VStack(alignment: .leading) {
                                             Text(item.title)
@@ -59,7 +57,7 @@ struct ToDoListView: View {
                                     .padding(.vertical, 10)
                                     .padding(.horizontal)
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(Color(.seafoam))
+                                    .background(item.isDone ? Color.gray.opacity(0.3) : Color(.seafoam))
                                     .cornerRadius(30)
                                     .padding(.horizontal)
                                 }
@@ -75,6 +73,9 @@ struct ToDoListView: View {
 func isSameDay(date1: Date, date2: Date) -> Bool {
     let calendar = Calendar.current
     return calendar.isDate(date1, inSameDayAs: date2)
+}
+func isDateInRange(date: Date, startDate: Date, endDate: Date) -> Bool {
+    return (startDate...endDate).contains(date)
 }
 
 struct ToDoListView_Previews: PreviewProvider {

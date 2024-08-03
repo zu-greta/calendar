@@ -14,7 +14,7 @@ struct DetailItemEditView: View {
     var body: some View {
         
         Form {
-            Section(header: Text("Event info")) {
+            Section(header: Text("Item info")) {
                 TextField("Title", text: $item.title)
                 DatePicker("Due Date", selection: dueDateBinding)
                 TextField("Notes", text: $item.notes)

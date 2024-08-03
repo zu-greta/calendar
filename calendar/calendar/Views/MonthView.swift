@@ -39,14 +39,14 @@ struct MonthView: View {
                     .tabViewStyle(PageTabViewStyle())
                     .indexViewStyle(.page(backgroundDisplayMode: .interactive))
                     
-                     HStack(spacing: 8) {
+                     HStack(spacing: 9) {
                          ForEach(0..<2) { index in
                              Circle()
                                  .fill(index == selection ? Color.indigo : Color.gray)
                                  .frame(width: 8, height: 8)
                          }
                      }
-                     .padding(.top, 150)
+                     .padding(.top, 199)
                 }
             }
             // adding a to do item or event
