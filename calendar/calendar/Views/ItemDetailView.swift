@@ -45,7 +45,7 @@ struct ItemDetailView: View {
                 }
                 .foregroundColor(.red)
             }
-            ToolbarItem(placement: .topBarTrailing) {
+            ToolbarItem(placement: .topBarTrailing) { 
                 Button("Edit") {
                     isPresentingEditView = true
                     editingItem = item

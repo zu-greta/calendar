@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-// editing event detailed view (+delete an event)
+// editing event detailed view (+ delete an event)
 struct EventDetailView: View {
     @Binding var event: Events
     var deleteAction: (() -> Void)? 

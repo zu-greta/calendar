@@ -11,6 +11,7 @@ import Foundation
 class MonthViewModel: ObservableObject {
     @Published var showingNewEvent = false
     @Published var showingNewItem = false
+    @Published var showingScheduleTodoView = false
     
     init () {}
 }

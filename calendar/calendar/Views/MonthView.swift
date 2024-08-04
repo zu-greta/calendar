@@ -23,6 +23,14 @@ struct MonthView: View {
                 //calendar month view
                 MyDatePicker(currentDate: $currentDate, events: $events, items: $items)
                 //TODO: add arrow button to pull up the schedule/todo view -> change to week instead of month view for the calendar
+                Button(action: {viewModel.showingScheduleTodoView = true}) {
+                    Image(systemName: "chevron.up").font(.title3)
+                }
+                .sheet(isPresented: $viewModel.showingScheduleTodoView, content: {
+                    NavigationView {
+                        ScheduletodoView(items: $items, events: $events, newEventPresented: $viewModel.showingScheduleTodoView)
+                    }
+                })
                 //schedule and to do list view
                 ZStack {
                     TabView(selection: $selection) {
@@ -46,11 +54,24 @@ struct MonthView: View {
                                  .frame(width: 8, height: 8)
                          }
                      }
-                     .padding(.top, 199)
+                     .padding(.top, 222)
                 }
             }
             // adding a to do item or event
             .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Menu("apps") {
+                        Button("Alarms") {  }
+                        Button("Notes") {  }
+                        Button("Health") {  }
+                        Button("Calendar") {  }
+                    }
+                    .font(.title2)
+                    .padding(.leading, 10)
+                    .padding(.top, 20)
+                    
+                }
+                //TODO: add functions to toolbar items
                 ToolbarItemGroup(placement: .bottomBar) {
                     Spacer()
                     Menu("+") {
@@ -72,23 +93,7 @@ struct MonthView: View {
                 phase in
                 if phase == .inactive {saveAction()}
             }
-            //TODO: add functions to toolbar items
-            .toolbar {
-                ToolbarItemGroup(placement: .topBarLeading) {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            Text("Alarms").padding(.horizontal)
-                            Text("Notes").padding(.horizontal)
-                            Text("Health").padding(.horizontal)
-                            Text("Calendar").padding(.horizontal)
-                            Text("Travel").padding(.horizontal)
-                        }
-                        
-                    }
-                    
-                }
-            }
-            .padding(.top)
+            //.padding(.top)
         }
     }
 }
@@ -98,3 +103,4 @@ struct MonthView_Previews: PreviewProvider {
         MonthView(items: .constant(ToDoItem.sampleData), events: .constant(Events.sampleData), saveAction: {})
     }
 }
+
