@@ -1,27 +1,23 @@
 //
-//  MyDatePicker.swift
-//  calendar
+//  DateView.swift
+//  calendar_mac
 //
-//  Created by Greta Zu on 2024-07-28.
+//  Created by Greta Zu on 2024-08-06.
 //
-
 
 import SwiftUI
 
-
-// month calendar view
-struct MyDatePicker: View {
-    @Binding var currentDate: Date
+struct DateView: View {
     @State var currentMonth: Int = 0
+    @Binding var currentDate: Date
     
-    @Binding var events: [Events]
-    @Binding var items: [ToDoItem]
+    @Binding var events: [Events_mac]
+    @Binding var items: [ToDoItem_mac]
     
     var body: some View {
-        VStack(spacing: 10) {
+        VStack {
             let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-            
-            HStack(spacing: 20) {
+            HStack (spacing: 20) {
                 VStack (alignment: .leading, spacing: 10) {
                     Text(extraDate()[0])
                         .font(.caption)
@@ -49,13 +45,12 @@ struct MyDatePicker: View {
                         .frame(maxWidth: .infinity)
                 }
             }
-            
             let columns = Array(repeating: GridItem(.flexible()), count: 7)
             LazyVGrid(columns: columns, spacing: 10) {
                 ForEach(extractDate()) {
                     value in CardView(value: value)
                         .background(Capsule()
-                            .fill(isToday(date: value.date) ? Color.blue.opacity(0.5) : Color.bubblegum.opacity(0.5))
+                            .fill(isToday(date: value.date) ? Color.blue.opacity(0.5) : Color.pink.opacity(0.5))
                         .padding(.horizontal, 8)
                         .opacity(isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                     )
@@ -64,16 +59,14 @@ struct MyDatePicker: View {
                     }
                 }
             }
-            
         }
         .onChange(of: currentMonth) {
             newValue in
             currentDate = getCurrentMonth()
         }
     }
-    
     @ViewBuilder
-    func CardView(value: DateValue)->some View {
+    func CardView(value: DateValue_mac)->some View {
         VStack {
             if value.day != -1 {
                 Text("\(value.day)")
@@ -91,7 +84,7 @@ struct MyDatePicker: View {
                             .frame(width: 7, height: 7)
                     }
                     
-                    if hasTodo(for: value.date) {
+                    if hasToDo(for: value.date) {
                         Circle()
                             .fill(isSameDay(date1: value.date, date2: currentDate) ? .gray : .teal)
                             .frame(width: 7, height: 7)
@@ -99,64 +92,63 @@ struct MyDatePicker: View {
                 }
             }
         }
-        .padding(.vertical, 9)
+        .padding(.vertical, 7)
         .frame(height: 50, alignment: .top)
     }
     
-    func hasTodo(for date: Date) -> Bool {
-        return items.contains { item in
-            return isSameDay(date1: Date(timeIntervalSince1970: item.dueDate), date2: date)
+    func hasToDo(for date: Date) -> Bool {
+        return items.contains {
+            item in return isSameDay(date1: Date(timeIntervalSince1970: item.dueDate), date2: date)
         }
     }
-    
-    func isDateInRange(date: Date, startDate: Date, endDate: Date) -> Bool {
-        return (startDate...endDate).contains(date)
-    }
-    
-    func isSameDay(date1: Date, date2: Date) -> Bool {
-        let calendar = Calendar.current
-        return calendar.isDate(date1, inSameDayAs: date2)
-    }
-    
-    func isToday(date: Date) -> Bool {
-        let calendar = Calendar.current
-        return calendar.isDateInToday(date)
-    }
-    
-    func extraDate() -> [String] {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY MMMM"
-        let date = formatter.string(from: currentDate)
-        return date.components(separatedBy: " ")
-    }
-    
-    func getCurrentMonth() -> Date {
-        let calendar = Calendar.current
-        guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date()) else {
-            return Date()
-        }
-        return currentMonth
-    }
-    
-    func extractDate() -> [DateValue] {
-        let calendar = Calendar.current
-        let currentMonth = getCurrentMonth()
-        var days = currentMonth.getAllDates().compactMap { date -> DateValue in
-            let day = calendar.component(.day, from: date)
-            return DateValue(day: day, date: date)
-        }
-        let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
-        for _ in 0..<firstWeekday - 1 {
-            days.insert(DateValue(day: -1, date: Date()), at: 0)
-        }
-        return days
-    }
+     func isDateInRange(date: Date, startDate: Date, endDate: Date) -> Bool {
+         return (startDate...endDate).contains(date)
+     }
+     
+     func isSameDay(date1: Date, date2: Date) -> Bool {
+         let calendar = Calendar.current
+         return calendar.isDate(date1, inSameDayAs: date2)
+     }
+     
+     func isToday(date: Date) -> Bool {
+         let calendar = Calendar.current
+         return calendar.isDateInToday(date)
+     }
+     
+     func extraDate() -> [String] {
+         let formatter = DateFormatter()
+         formatter.dateFormat = "YYYY MMMM"
+         let date = formatter.string(from: currentDate)
+         return date.components(separatedBy: " ")
+     }
+     
+     func getCurrentMonth() -> Date {
+         let calendar = Calendar.current
+         guard let currentMonth = calendar.date(byAdding: .month, value: self.currentMonth, to: Date()) else {
+             return Date()
+         }
+         return currentMonth
+     }
+     
+     func extractDate() -> [DateValue_mac] {
+         let calendar = Calendar.current
+         let currentMonth = getCurrentMonth()
+         var days = currentMonth.getAllDates().compactMap { date -> DateValue_mac in
+             let day = calendar.component(.day, from: date)
+             return DateValue_mac(day: day, date: date)
+         }
+         let firstWeekday = calendar.component(.weekday, from: days.first?.date ?? Date())
+         for _ in 0..<firstWeekday - 1 {
+             days.insert(DateValue_mac(day: -1, date: Date()), at: 0)
+         }
+         return days
+     }
 }
 
-struct MyDatePicker_Previews: PreviewProvider {
-    static var previews: some View {
-        MonthView(items: .constant(ToDoItem.sampleData), events: .constant(Events.sampleData), saveAction: {})
-    }
+
+#Preview {
+    DateView(currentDate: .constant(Date()),events: .constant(Events_mac.sampleData), items: .constant(ToDoItem_mac.sampleData))
+        .frame(width: 400, height: 500)
 }
 
 extension Date {
@@ -169,5 +161,3 @@ extension Date {
         }
     }
 }
-
-
