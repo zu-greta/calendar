@@ -19,6 +19,12 @@
 		8AE8BD642C66C1E100E96AA1 /* ToDoItem_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD632C66C1E100E96AA1 /* ToDoItem_mac.swift */; };
 		8AE8BD662C66C22600E96AA1 /* Events_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD652C66C22600E96AA1 /* Events_mac.swift */; };
 		8AE8BD682C66E0A700E96AA1 /* Themes_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD672C66E0A700E96AA1 /* Themes_mac.swift */; };
+		8AE8BD6A2C66E8A300E96AA1 /* ScheduleView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD692C66E8A300E96AA1 /* ScheduleView_mac.swift */; };
+		8AE8BD6C2C66E8AF00E96AA1 /* ToDoListView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD6B2C66E8AF00E96AA1 /* ToDoListView_mac.swift */; };
+		8AE8BD6E2C66E94200E96AA1 /* EventDetailView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD6D2C66E94200E96AA1 /* EventDetailView_mac.swift */; };
+		8AE8BD702C66E97A00E96AA1 /* ItemDetailView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD6F2C66E97A00E96AA1 /* ItemDetailView_mac.swift */; };
+		8AE8BD722C66E9D700E96AA1 /* DetailItemEditView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD712C66E9D700E96AA1 /* DetailItemEditView_mac.swift */; };
+		8AE8BD742C66EAC500E96AA1 /* DetailEventEditView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD732C66EAC500E96AA1 /* DetailEventEditView_mac.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +61,12 @@
 		8AE8BD632C66C1E100E96AA1 /* ToDoItem_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoItem_mac.swift; sourceTree = "<group>"; };
 		8AE8BD652C66C22600E96AA1 /* Events_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events_mac.swift; sourceTree = "<group>"; };
 		8AE8BD672C66E0A700E96AA1 /* Themes_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes_mac.swift; sourceTree = "<group>"; };
+		8AE8BD692C66E8A300E96AA1 /* ScheduleView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD6B2C66E8AF00E96AA1 /* ToDoListView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD6D2C66E94200E96AA1 /* EventDetailView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD6F2C66E97A00E96AA1 /* ItemDetailView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD712C66E9D700E96AA1 /* DetailItemEditView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemEditView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD732C66EAC500E96AA1 /* DetailEventEditView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventEditView_mac.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +157,12 @@
 			children = (
 				8AE8BD342C62A94100E96AA1 /* MonthMacView.swift */,
 				8AE8BD5E2C62B64900E96AA1 /* DateView.swift */,
+				8AE8BD692C66E8A300E96AA1 /* ScheduleView_mac.swift */,
+				8AE8BD6B2C66E8AF00E96AA1 /* ToDoListView_mac.swift */,
+				8AE8BD6D2C66E94200E96AA1 /* EventDetailView_mac.swift */,
+				8AE8BD6F2C66E97A00E96AA1 /* ItemDetailView_mac.swift */,
+				8AE8BD712C66E9D700E96AA1 /* DetailItemEditView_mac.swift */,
+				8AE8BD732C66EAC500E96AA1 /* DetailEventEditView_mac.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,11 +309,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE8BD5F2C62B64900E96AA1 /* DateView.swift in Sources */,
+				8AE8BD742C66EAC500E96AA1 /* DetailEventEditView_mac.swift in Sources */,
+				8AE8BD6A2C66E8A300E96AA1 /* ScheduleView_mac.swift in Sources */,
 				8AE8BD642C66C1E100E96AA1 /* ToDoItem_mac.swift in Sources */,
 				8AE8BD622C65C20B00E96AA1 /* DateValue_mac.swift in Sources */,
+				8AE8BD6C2C66E8AF00E96AA1 /* ToDoListView_mac.swift in Sources */,
+				8AE8BD702C66E97A00E96AA1 /* ItemDetailView_mac.swift in Sources */,
+				8AE8BD722C66E9D700E96AA1 /* DetailItemEditView_mac.swift in Sources */,
 				8AE8BD682C66E0A700E96AA1 /* Themes_mac.swift in Sources */,
 				8AE8BD352C62A94100E96AA1 /* MonthMacView.swift in Sources */,
 				8AE8BD662C66C22600E96AA1 /* Events_mac.swift in Sources */,
+				8AE8BD6E2C66E94200E96AA1 /* EventDetailView_mac.swift in Sources */,
 				8AE8BD332C62A94100E96AA1 /* calendar_macApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

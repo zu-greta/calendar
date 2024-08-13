@@ -17,6 +17,7 @@ struct DateView: View {
     var body: some View {
         VStack {
             let days: [String] = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            Spacer()
             HStack (spacing: 20) {
                 VStack (alignment: .leading, spacing: 10) {
                     Text(extraDate()[0])
