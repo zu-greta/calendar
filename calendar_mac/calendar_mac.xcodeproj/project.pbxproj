@@ -25,6 +25,17 @@
 		8AE8BD702C66E97A00E96AA1 /* ItemDetailView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD6F2C66E97A00E96AA1 /* ItemDetailView_mac.swift */; };
 		8AE8BD722C66E9D700E96AA1 /* DetailItemEditView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD712C66E9D700E96AA1 /* DetailItemEditView_mac.swift */; };
 		8AE8BD742C66EAC500E96AA1 /* DetailEventEditView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD732C66EAC500E96AA1 /* DetailEventEditView_mac.swift */; };
+		8AE8BD762C6C341F00E96AA1 /* MonthViewModel_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD752C6C341F00E96AA1 /* MonthViewModel_mac.swift */; };
+		8AE8BD782C6C34A300E96AA1 /* AddEventView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD772C6C34A300E96AA1 /* AddEventView_mac.swift */; };
+		8AE8BD7A2C6C34C100E96AA1 /* AddToDoView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD792C6C34C000E96AA1 /* AddToDoView_mac.swift */; };
+		8AE8BD7C2C6C356200E96AA1 /* AddingEventView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD7B2C6C356200E96AA1 /* AddingEventView_mac.swift */; };
+		8AE8BD7E2C6C360800E96AA1 /* AddingItemView_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD7D2C6C360800E96AA1 /* AddingItemView_mac.swift */; };
+		8AE8BD812C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD7F2C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld */; };
+		8AE8BD8E2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8A2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift */; };
+		8AE8BD8F2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */; };
+		8AE8BD902C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */; };
+		8AE8BD912C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */; };
+		8AE8BD932C6D0ECF00E96AA1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD922C6D0ECF00E96AA1 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +78,17 @@
 		8AE8BD6F2C66E97A00E96AA1 /* ItemDetailView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView_mac.swift; sourceTree = "<group>"; };
 		8AE8BD712C66E9D700E96AA1 /* DetailItemEditView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemEditView_mac.swift; sourceTree = "<group>"; };
 		8AE8BD732C66EAC500E96AA1 /* DetailEventEditView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventEditView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD752C6C341F00E96AA1 /* MonthViewModel_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthViewModel_mac.swift; sourceTree = "<group>"; };
+		8AE8BD772C6C34A300E96AA1 /* AddEventView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD792C6C34C000E96AA1 /* AddToDoView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToDoView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD7B2C6C356200E96AA1 /* AddingEventView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingEventView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD7D2C6C360800E96AA1 /* AddingItemView_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingItemView_mac.swift; sourceTree = "<group>"; };
+		8AE8BD802C6C3F2D00E96AA1 /* calendar_mac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = calendar_mac.xcdatamodel; sourceTree = "<group>"; };
+		8AE8BD8A2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEvent_mac+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEvent_mac+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem_mac+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem_mac+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8AE8BD922C6D0ECF00E96AA1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Models/DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,12 +139,18 @@
 		8AE8BD312C62A94100E96AA1 /* calendar_mac */ = {
 			isa = PBXGroup;
 			children = (
+				8AE8BD8A2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift */,
+				8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */,
+				8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */,
+				8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */,
+				8AE8BD922C6D0ECF00E96AA1 /* DataManager.swift */,
 				8AE8BD602C65C1FC00E96AA1 /* Models */,
 				8AE8BD5D2C62B62B00E96AA1 /* Views */,
 				8AE8BD322C62A94100E96AA1 /* calendar_macApp.swift */,
 				8AE8BD362C62A94300E96AA1 /* Assets.xcassets */,
 				8AE8BD3B2C62A94300E96AA1 /* calendar_mac.entitlements */,
 				8AE8BD382C62A94300E96AA1 /* Preview Content */,
+				8AE8BD7F2C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld */,
 			);
 			path = calendar_mac;
 			sourceTree = "<group>";
@@ -163,6 +191,10 @@
 				8AE8BD6F2C66E97A00E96AA1 /* ItemDetailView_mac.swift */,
 				8AE8BD712C66E9D700E96AA1 /* DetailItemEditView_mac.swift */,
 				8AE8BD732C66EAC500E96AA1 /* DetailEventEditView_mac.swift */,
+				8AE8BD772C6C34A300E96AA1 /* AddEventView_mac.swift */,
+				8AE8BD792C6C34C000E96AA1 /* AddToDoView_mac.swift */,
+				8AE8BD7B2C6C356200E96AA1 /* AddingEventView_mac.swift */,
+				8AE8BD7D2C6C360800E96AA1 /* AddingItemView_mac.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +206,7 @@
 				8AE8BD632C66C1E100E96AA1 /* ToDoItem_mac.swift */,
 				8AE8BD652C66C22600E96AA1 /* Events_mac.swift */,
 				8AE8BD672C66E0A700E96AA1 /* Themes_mac.swift */,
+				8AE8BD752C6C341F00E96AA1 /* MonthViewModel_mac.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,13 +342,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE8BD5F2C62B64900E96AA1 /* DateView.swift in Sources */,
+				8AE8BD932C6D0ECF00E96AA1 /* DataManager.swift in Sources */,
 				8AE8BD742C66EAC500E96AA1 /* DetailEventEditView_mac.swift in Sources */,
 				8AE8BD6A2C66E8A300E96AA1 /* ScheduleView_mac.swift in Sources */,
+				8AE8BD7C2C6C356200E96AA1 /* AddingEventView_mac.swift in Sources */,
+				8AE8BD812C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld in Sources */,
+				8AE8BD762C6C341F00E96AA1 /* MonthViewModel_mac.swift in Sources */,
 				8AE8BD642C66C1E100E96AA1 /* ToDoItem_mac.swift in Sources */,
+				8AE8BD782C6C34A300E96AA1 /* AddEventView_mac.swift in Sources */,
+				8AE8BD8E2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift in Sources */,
+				8AE8BD8F2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift in Sources */,
+				8AE8BD902C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift in Sources */,
+				8AE8BD912C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift in Sources */,
 				8AE8BD622C65C20B00E96AA1 /* DateValue_mac.swift in Sources */,
 				8AE8BD6C2C66E8AF00E96AA1 /* ToDoListView_mac.swift in Sources */,
 				8AE8BD702C66E97A00E96AA1 /* ItemDetailView_mac.swift in Sources */,
 				8AE8BD722C66E9D700E96AA1 /* DetailItemEditView_mac.swift in Sources */,
+				8AE8BD7A2C6C34C100E96AA1 /* AddToDoView_mac.swift in Sources */,
+				8AE8BD7E2C6C360800E96AA1 /* AddingItemView_mac.swift in Sources */,
 				8AE8BD682C66E0A700E96AA1 /* Themes_mac.swift in Sources */,
 				8AE8BD352C62A94100E96AA1 /* MonthMacView.swift in Sources */,
 				8AE8BD662C66C22600E96AA1 /* Events_mac.swift in Sources */,
@@ -641,6 +685,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8AE8BD7F2C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8AE8BD802C6C3F2D00E96AA1 /* calendar_mac.xcdatamodel */,
+			);
+			currentVersion = 8AE8BD802C6C3F2D00E96AA1 /* calendar_mac.xcdatamodel */;
+			name = calendar_mac.xcdatamodeld;
+			path = /Users/gretazu/Documents/mcgill/u2/calendar/calendar_mac/calendar_mac/calendar_mac.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8AE8BD272C62A94100E96AA1 /* Project object */;
 }

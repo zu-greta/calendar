@@ -12,8 +12,10 @@ struct MonthMacView: View {
     @Binding var items: [ToDoItem_mac]
     @Binding var events: [Events_mac]
     @State private var selection = 0
+    @StateObject var viewModel = MonthViewModel_mac()
 
     var body: some View {
+        //NavigationSplitView{}
         VStack (spacing: 20) {
             DateView(currentDate: $currentDate,events: $events, items: $items)
             //schedule and todo list
@@ -29,22 +31,44 @@ struct MonthMacView: View {
                     .tag(1)
                 }
                 .tabViewStyle(DefaultTabViewStyle())
-                //.indexViewStyle
-                /*
-                HStack(spacing: 9) {
-                    ForEach(0..<2) { index in
-                        Circle()
-                            .fill(index == selection ? Color.indigo : Color.gray)
-                            .frame(width: 8, height: 8)
-                    }
-                }*/
-                //.padding(.top, 222)
             }
+        }
+        // adding a to do item or event
+        .toolbar {
+            ToolbarItemGroup(placement: .automatic) {
+                Menu("apps") {
+                    Button("Alarms") {  }
+                    Button("Notes") {  }
+                    Button("Health") {  }
+                    Button("Calendar") {  }
+                }
+                .font(.title2)
+                .padding(.leading, 10)
+                .padding(.top, 20)
+                
+            }
+            //TODO: add functions to toolbar items
+            ToolbarItemGroup(placement: .automatic) {
+                Spacer()
+                Menu("+") {
+                    Button("Add Event") { viewModel.showingNewEvent = true }
+                    Button("Add ToDo Item") { viewModel.showingNewItem = true }
+                }
+                .font(.largeTitle)
+                .padding(.trailing, 10)
+                .padding(.top, 20)
+            }
+        }
+        .sheet(isPresented: $viewModel.showingNewEvent) {
+            AddEventView_mac(events: $events, newEventPresented: $viewModel.showingNewEvent)
+        }
+        .sheet(isPresented: $viewModel.showingNewItem) {
+            AddToDoView_mac(items: $items, newEventPresented: $viewModel.showingNewItem)
         }
     }
 }
 
 #Preview {
     MonthMacView(items: .constant(ToDoItem_mac.sampleData), events: .constant(Events_mac.sampleData))
-        .frame(width: 600, height: 800)
+        .frame(width: 700, height: 800)
 }
