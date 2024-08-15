@@ -13,6 +13,10 @@ struct AddToDoView_mac: View {
     @Binding var items: [ToDoItem_mac]
     @Binding var newEventPresented: Bool
     
+    //COREDATA
+    @EnvironmentObject var manager: ItemDataManager
+    @Environment(\.managedObjectContext) var viewContext
+    
     var body: some View {
         NavigationStack {
             AddingItemView_mac(viewModel: $addItem)

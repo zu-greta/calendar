@@ -35,7 +35,8 @@
 		8AE8BD8F2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */; };
 		8AE8BD902C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */; };
 		8AE8BD912C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */; };
-		8AE8BD932C6D0ECF00E96AA1 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD922C6D0ECF00E96AA1 /* DataManager.swift */; };
+		8AE8BD932C6D0ECF00E96AA1 /* ItemDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD922C6D0ECF00E96AA1 /* ItemDataManager.swift */; };
+		8AE8BD9A2C6D157F00E96AA1 /* EventDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD992C6D157F00E96AA1 /* EventDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +89,8 @@
 		8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEvent_mac+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem_mac+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDItem_mac+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8AE8BD922C6D0ECF00E96AA1 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Models/DataManager.swift; sourceTree = "<group>"; };
+		8AE8BD922C6D0ECF00E96AA1 /* ItemDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataManager.swift; sourceTree = "<group>"; };
+		8AE8BD992C6D157F00E96AA1 /* EventDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,11 +141,7 @@
 		8AE8BD312C62A94100E96AA1 /* calendar_mac */ = {
 			isa = PBXGroup;
 			children = (
-				8AE8BD8A2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift */,
-				8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */,
-				8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */,
-				8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */,
-				8AE8BD922C6D0ECF00E96AA1 /* DataManager.swift */,
+				8AE8BD962C6D138500E96AA1 /* CoreData_mac */,
 				8AE8BD602C65C1FC00E96AA1 /* Models */,
 				8AE8BD5D2C62B62B00E96AA1 /* Views */,
 				8AE8BD322C62A94100E96AA1 /* calendar_macApp.swift */,
@@ -209,6 +207,19 @@
 				8AE8BD752C6C341F00E96AA1 /* MonthViewModel_mac.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8AE8BD962C6D138500E96AA1 /* CoreData_mac */ = {
+			isa = PBXGroup;
+			children = (
+				8AE8BD8A2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift */,
+				8AE8BD8B2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift */,
+				8AE8BD8C2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift */,
+				8AE8BD8D2C6D0E5A00E96AA1 /* CDItem_mac+CoreDataProperties.swift */,
+				8AE8BD922C6D0ECF00E96AA1 /* ItemDataManager.swift */,
+				8AE8BD992C6D157F00E96AA1 /* EventDataManager.swift */,
+			);
+			path = CoreData_mac;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,10 +353,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AE8BD5F2C62B64900E96AA1 /* DateView.swift in Sources */,
-				8AE8BD932C6D0ECF00E96AA1 /* DataManager.swift in Sources */,
+				8AE8BD932C6D0ECF00E96AA1 /* ItemDataManager.swift in Sources */,
 				8AE8BD742C66EAC500E96AA1 /* DetailEventEditView_mac.swift in Sources */,
 				8AE8BD6A2C66E8A300E96AA1 /* ScheduleView_mac.swift in Sources */,
 				8AE8BD7C2C6C356200E96AA1 /* AddingEventView_mac.swift in Sources */,
+				8AE8BD9A2C6D157F00E96AA1 /* EventDataManager.swift in Sources */,
 				8AE8BD812C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld in Sources */,
 				8AE8BD762C6C341F00E96AA1 /* MonthViewModel_mac.swift in Sources */,
 				8AE8BD642C66C1E100E96AA1 /* ToDoItem_mac.swift in Sources */,

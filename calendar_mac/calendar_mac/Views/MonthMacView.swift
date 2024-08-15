@@ -13,11 +13,15 @@ struct MonthMacView: View {
     @Binding var events: [Events_mac]
     @State private var selection = 0
     @StateObject var viewModel = MonthViewModel_mac()
+    
+    //COREDATA
+    //@FetchRequest(sortDescriptors: []) private var todos: FetchedResults<CDItem_mac>
 
     var body: some View {
         //NavigationSplitView{}
         VStack (spacing: 20) {
             DateView(currentDate: $currentDate,events: $events, items: $items)
+            //DateView(currentDate: $currentDate,events: $events, items: todos)
             //schedule and todo list
             ZStack {
                 TabView(selection: $selection) {
@@ -27,6 +31,7 @@ struct MonthMacView: View {
                     .tag(0)
                     ScrollView(.vertical) {
                         ToDoListView_mac(items: $items, currentDate: $currentDate)
+                        //ToDoListView_mac(items: todos, currentDate: $currentDate)
                     }
                     .tag(1)
                 }
@@ -65,6 +70,10 @@ struct MonthMacView: View {
         .sheet(isPresented: $viewModel.showingNewItem) {
             AddToDoView_mac(items: $items, newEventPresented: $viewModel.showingNewItem)
         }
+        /*
+        .onChange(of: $viewModel) {
+            newTodo in self.todos.nsPredicate = newTodo.isEmpty ? nil : NSPredicate(format: "title CONTAINS %@", newTodo)
+        }*/
     }
 }
 
