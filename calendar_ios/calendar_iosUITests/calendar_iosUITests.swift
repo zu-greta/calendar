@@ -1,13 +1,13 @@
 //
-//  calendarUITests.swift
-//  calendarUITests
+//  calendar_iosUITests.swift
+//  calendar_iosUITests
 //
-//  Created by Greta Zu on 2024-07-28.
+//  Created by Greta Zu on 2024-08-15.
 //
 
 import XCTest
 
-final class calendarUITests: XCTestCase {
+final class calendar_iosUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

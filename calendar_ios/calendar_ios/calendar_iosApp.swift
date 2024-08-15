@@ -1,5 +1,5 @@
 //
-//  calendarApp.swift
+//  calendar_iosApp.swift
 //  calendar
 //
 //  Created by Greta Zu on 2024-07-28.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct calendarApp: App {
+struct calendar_iosApp: App {
     @StateObject private var store = ItemStore()
     @StateObject private var eventStore = EventStore()
     
