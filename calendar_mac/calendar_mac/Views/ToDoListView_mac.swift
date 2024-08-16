@@ -33,6 +33,7 @@ struct ToDoListView_mac: View {
                             ForEach(items)
                             { item in
                                 if let index = items.firstIndex(where: { $0.id == item.id && isSameDay(date1: Date(timeIntervalSince1970: $0.dueDate), date2: currentDate) }) {
+                                    
                                     NavigationLink(destination: ItemDetailView_mac(item: $items[index], deleteAction: {items.remove(at: index)})) {
                                         HStack {
                                             VStack(alignment: .leading) {
@@ -63,6 +64,7 @@ struct ToDoListView_mac: View {
                                         .cornerRadius(30)
                                         .padding(.horizontal)
                                     }
+                                    
                                 }
                             }
                         }

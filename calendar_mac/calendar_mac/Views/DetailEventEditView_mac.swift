@@ -32,6 +32,7 @@ struct DetailEventEditView_mac: View {
                 TextField("Notes", text: $event.notes)
             }
         }
+        .padding()
     }
     private var startTimeBinding: Binding<Date> {
             Binding<Date>(

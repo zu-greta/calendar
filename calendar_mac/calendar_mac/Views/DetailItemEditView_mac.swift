@@ -20,6 +20,7 @@ struct DetailItemEditView_mac: View {
                 TextField("Notes", text: $item.notes)
             }
         }
+        .padding()
     }
     private var dueDateBinding: Binding<Date> {
             Binding<Date>(

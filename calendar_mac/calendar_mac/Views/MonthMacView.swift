@@ -19,61 +19,63 @@ struct MonthMacView: View {
 
     var body: some View {
         //NavigationSplitView{}
-        VStack (spacing: 20) {
-            DateView(currentDate: $currentDate,events: $events, items: $items)
-            //DateView(currentDate: $currentDate,events: $events, items: todos)
-            //schedule and todo list
-            ZStack {
-                TabView(selection: $selection) {
-                    ScrollView(.vertical) {
-                        ScheduleView_mac(events: $events, currentDate: $currentDate)
+        NavigationStack{
+            VStack (spacing: 20) {
+                DateView(currentDate: $currentDate,events: $events, items: $items)
+                //DateView(currentDate: $currentDate,events: $events, items: todos)
+                //schedule and todo list
+                ZStack {
+                    TabView(selection: $selection) {
+                        ScrollView(.vertical) {
+                            ScheduleView_mac(events: $events, currentDate: $currentDate)
+                        }
+                        .tag(0)
+                        ScrollView(.vertical) {
+                            ToDoListView_mac(items: $items, currentDate: $currentDate)
+                            //ToDoListView_mac(items: todos, currentDate: $currentDate)
+                        }
+                        .tag(1)
                     }
-                    .tag(0)
-                    ScrollView(.vertical) {
-                        ToDoListView_mac(items: $items, currentDate: $currentDate)
-                        //ToDoListView_mac(items: todos, currentDate: $currentDate)
+                    .tabViewStyle(DefaultTabViewStyle())
+                }
+            }
+            // adding a to do item or event
+            .toolbar {
+                ToolbarItemGroup(placement: .automatic) {
+                    Menu("apps") {
+                        Button("Alarms") {  }
+                        Button("Notes") {  }
+                        Button("Health") {  }
+                        Button("Calendar") {  }
                     }
-                    .tag(1)
+                    .font(.title2)
+                    .padding(.leading, 10)
+                    .padding(.top, 20)
+                    
                 }
-                .tabViewStyle(DefaultTabViewStyle())
-            }
-        }
-        // adding a to do item or event
-        .toolbar {
-            ToolbarItemGroup(placement: .automatic) {
-                Menu("apps") {
-                    Button("Alarms") {  }
-                    Button("Notes") {  }
-                    Button("Health") {  }
-                    Button("Calendar") {  }
+                //TODO: add functions to toolbar items
+                ToolbarItemGroup(placement: .automatic) {
+                    Spacer()
+                    Menu("+") {
+                        Button("Add Event") { viewModel.showingNewEvent = true }
+                        Button("Add ToDo Item") { viewModel.showingNewItem = true }
+                    }
+                    .font(.largeTitle)
+                    .padding(.trailing, 10)
+                    .padding(.top, 20)
                 }
-                .font(.title2)
-                .padding(.leading, 10)
-                .padding(.top, 20)
-                
             }
-            //TODO: add functions to toolbar items
-            ToolbarItemGroup(placement: .automatic) {
-                Spacer()
-                Menu("+") {
-                    Button("Add Event") { viewModel.showingNewEvent = true }
-                    Button("Add ToDo Item") { viewModel.showingNewItem = true }
-                }
-                .font(.largeTitle)
-                .padding(.trailing, 10)
-                .padding(.top, 20)
+            .sheet(isPresented: $viewModel.showingNewEvent) {
+                AddEventView_mac(events: $events, newEventPresented: $viewModel.showingNewEvent)
             }
+            .sheet(isPresented: $viewModel.showingNewItem) {
+                AddToDoView_mac(items: $items, newEventPresented: $viewModel.showingNewItem)
+            }
+            /*
+             .onChange(of: $viewModel) {
+             newTodo in self.todos.nsPredicate = newTodo.isEmpty ? nil : NSPredicate(format: "title CONTAINS %@", newTodo)
+             }*/
         }
-        .sheet(isPresented: $viewModel.showingNewEvent) {
-            AddEventView_mac(events: $events, newEventPresented: $viewModel.showingNewEvent)
-        }
-        .sheet(isPresented: $viewModel.showingNewItem) {
-            AddToDoView_mac(items: $items, newEventPresented: $viewModel.showingNewItem)
-        }
-        /*
-        .onChange(of: $viewModel) {
-            newTodo in self.todos.nsPredicate = newTodo.isEmpty ? nil : NSPredicate(format: "title CONTAINS %@", newTodo)
-        }*/
     }
 }
 
