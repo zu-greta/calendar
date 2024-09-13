@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A9681F22C93CE8100BE8D12 /* EventStore_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9681F12C93CE8100BE8D12 /* EventStore_mac.swift */; };
+		8A9681F42C93CEC400BE8D12 /* ItemStore_mac.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9681F32C93CEC400BE8D12 /* ItemStore_mac.swift */; };
 		8AE8BD332C62A94100E96AA1 /* calendar_macApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD322C62A94100E96AA1 /* calendar_macApp.swift */; };
 		8AE8BD352C62A94100E96AA1 /* MonthMacView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE8BD342C62A94100E96AA1 /* MonthMacView.swift */; };
 		8AE8BD372C62A94300E96AA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE8BD362C62A94300E96AA1 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A9681F12C93CE8100BE8D12 /* EventStore_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore_mac.swift; sourceTree = "<group>"; };
+		8A9681F32C93CEC400BE8D12 /* ItemStore_mac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore_mac.swift; sourceTree = "<group>"; };
 		8AE8BD2F2C62A94100E96AA1 /* calendar_mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calendar_mac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AE8BD322C62A94100E96AA1 /* calendar_macApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendar_macApp.swift; sourceTree = "<group>"; };
 		8AE8BD342C62A94100E96AA1 /* MonthMacView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthMacView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				8AE8BD652C66C22600E96AA1 /* Events_mac.swift */,
 				8AE8BD672C66E0A700E96AA1 /* Themes_mac.swift */,
 				8AE8BD752C6C341F00E96AA1 /* MonthViewModel_mac.swift */,
+				8A9681F12C93CE8100BE8D12 /* EventStore_mac.swift */,
+				8A9681F32C93CEC400BE8D12 /* ItemStore_mac.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,8 +366,10 @@
 				8AE8BD9A2C6D157F00E96AA1 /* EventDataManager.swift in Sources */,
 				8AE8BD812C6C3F2D00E96AA1 /* calendar_mac.xcdatamodeld in Sources */,
 				8AE8BD762C6C341F00E96AA1 /* MonthViewModel_mac.swift in Sources */,
+				8A9681F22C93CE8100BE8D12 /* EventStore_mac.swift in Sources */,
 				8AE8BD642C66C1E100E96AA1 /* ToDoItem_mac.swift in Sources */,
 				8AE8BD782C6C34A300E96AA1 /* AddEventView_mac.swift in Sources */,
+				8A9681F42C93CEC400BE8D12 /* ItemStore_mac.swift in Sources */,
 				8AE8BD8E2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataClass.swift in Sources */,
 				8AE8BD8F2C6D0E5A00E96AA1 /* CDEvent_mac+CoreDataProperties.swift in Sources */,
 				8AE8BD902C6D0E5A00E96AA1 /* CDItem_mac+CoreDataClass.swift in Sources */,

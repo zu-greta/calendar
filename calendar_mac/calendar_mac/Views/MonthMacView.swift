@@ -14,6 +14,9 @@ struct MonthMacView: View {
     @State private var selection = 0
     @StateObject var viewModel = MonthViewModel_mac()
     
+    @Environment(\.scenePhase) private var scenePhase
+    let saveAction: ()->Void
+    
     //COREDATA
     //@FetchRequest(sortDescriptors: []) private var todos: FetchedResults<CDItem_mac>
 
@@ -71,6 +74,10 @@ struct MonthMacView: View {
             .sheet(isPresented: $viewModel.showingNewItem) {
                 AddToDoView_mac(items: $items, newEventPresented: $viewModel.showingNewItem)
             }
+            .onChange(of: scenePhase) {
+                phase in
+                if phase == .inactive {saveAction()}
+            }
             /*
              .onChange(of: $viewModel) {
              newTodo in self.todos.nsPredicate = newTodo.isEmpty ? nil : NSPredicate(format: "title CONTAINS %@", newTodo)
@@ -80,6 +87,6 @@ struct MonthMacView: View {
 }
 
 #Preview {
-    MonthMacView(items: .constant(ToDoItem_mac.sampleData), events: .constant(Events_mac.sampleData))
+    MonthMacView(items: .constant(ToDoItem_mac.sampleData), events: .constant(Events_mac.sampleData), saveAction: {})
         .frame(width: 700, height: 800)
 }

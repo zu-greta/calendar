@@ -17,4 +17,5 @@ iOS app:
 
 MacOS app:
 - similar concept to the iOS version but on Mac. slightly different layout since there is more space available.
-- instead of persistent storage, use CoreData to implement persistence and store user data. simpler than having a database (third party).
+- current implementation done using persistent storage (like iOS).
+- *TODO: instead of persistent storage, use CoreData to implement persistence and store user data. simpler than having a database (third party).*
