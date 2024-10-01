@@ -13,6 +13,12 @@ GOAL:
 - learn about unique UI design in different environements (iOS vs MacOS)
 - gain unerstanding about iOS/MacOS design environement (Xcode, SwuiftUI...)
 
+NEXT STEP + IDEAS:
+- Implement more app functionalities
+- Possibility of syncing with other apps (eg. syncing data of the Apple Calendar over to the app)
+- Adding more devices to an account
+- Idea: Collaboration feature where you can block off time slots and share calendars with friends in order to find availabilities and organize group activities.
+
 
 NOTES AND FINDINGS:
 - use of persistent storage instead of database for simpler implementation. very light use right now so no need for heavy database or third party. using coredata for macOS.
